@@ -1,0 +1,24 @@
+<h1>{{title}}</h1>
+{{#each buds}}
+
+  {{! Card }}
+  <div class="col">
+    <div class="col-sm-8">
+      <div class="card border-success" style="margin: 1rem">
+        <div class="card-body">
+          <h5 class="card-title">{{this.name}}</h5>
+          <p class="card-title">{{this.strain}}</p>
+          <p class="card-title">{{this.thc}}</p>
+          <p class="card-title">{{this.cbd}}</p>
+          <a href="#" class="btn btn-success">Reviews</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{! <img
+      class="card-img-top"
+      src="./images/candyland.jpeg"
+      alt="Card image cap"
+    /> }}
+{{/each}}
