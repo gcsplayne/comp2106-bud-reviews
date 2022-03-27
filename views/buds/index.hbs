@@ -1,19 +1,32 @@
-<h1>{{title}}</h1>
+<div class="conatiner-fluid">
+  <nav class="navbar navbar-light">
+    <a class="navbar-brand"><h1>{{title}}</h1></a>
+    <form class="form-inline">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2" type="submit">Search</button>
+    </form>
+  </nav>
+</div>
 {{#each buds}}
 
   {{! Card }}
   <div class="col">
-    <div class="col-sm-8">
-      <div class="card border-success" style="margin: 1rem">
-        <div class="card-body">
-          <h5 class="card-title">{{this.name}}</h5>
-          <p class="card-title">{{this.strain}}</p>
-          <p class="card-title">{{this.thc}}</p>
-          <p class="card-title">{{this.cbd}}</p>
-          <a href="#" class="btn btn-success">Reviews</a>
-        </div>
+
+    <div class="card border-success" style="margin: 1rem">
+      <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <p class="card-title">{{this.strain}}</p>
+        <p class="card-title">{{this.thc}}</p>
+        <p class="card-title">{{this.cbd}}</p>
+        <a href="#" class="btn btn-success">Reviews</a>
       </div>
     </div>
+
   </div>
 
   {{! <img
