@@ -15,10 +15,34 @@ router.get("/", (req, res) => {
   });
 });
 
-// GET /buds/create => load emplty buds form
+// GET /buds/create => load empty buds form
 router.get("/create", (req, res) => {
   res.render("buds/create", {
-    title: "bud",
+    title: "Review a Bud",
+  });
+});
+
+//POST /budscreate => post populated buds form to create
+
+router.post("/create", (req, res) => {
+  // use our mongoose model to create a new bud from the submitted form body
+  Bud.create(req.body, (err, bud) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/buds");
+    }
+  });
+});
+
+/* GET /BUDS/DELETE/ABC123 => DELETE BUDS WITH THE ID FOUND IN THE URL PARAM */
+router.get("/delete/:_id", (req, res) => {
+  Bud.remove({ _id: req.params._id }, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/buds");
+    }
   });
 });
 // export this file so is it public

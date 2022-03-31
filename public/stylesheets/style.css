@@ -1,49 +1,37 @@
 body {
+  margin: 0;
   font-family: "Manrope", sans-serif;
-  min-height: 100%;
-  margin-bottom: 10rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
   color: #00b7ff;
 }
 
-body {
-}
-
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  text-align: center;
-}
-.hero-image {
-  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("../images/sps.png");
-
-  justify-content: center;
-  /* Set a specific height */
-  height: 55%;
-
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+  margin-top: auto;
 }
 
-/* Place text in the middle of the image */
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-}
 fieldset {
   margin: 0.5rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.hero {
+  color: white;
+  text-align: center;
+  padding: 15em 0;
+  background-size: cover;
+
+  background-image: linear-gradient(
+      to bottom,
+      rgba(149, 165, 166, 0.5),
+      rgba(0, 0, 0, 0.8)
+    ),
+    url(../images/space.png);
 }
