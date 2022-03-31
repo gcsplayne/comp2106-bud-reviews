@@ -12,7 +12,7 @@ let budSchema = new mongoose.Schema({
   },
   strain: {
     type: String,
-    required: "Loccation is required",
+    required: "Strain is required",
     trim: true,
   },
   thc: {
@@ -22,7 +22,12 @@ let budSchema = new mongoose.Schema({
   },
   cbd: {
     type: String,
-    required: "THC Level required",
+    required: "CBD Level required",
+    trim: true,
+  },
+  review: {
+    type: String,
+    required: "Review required",
     trim: true,
   },
 });

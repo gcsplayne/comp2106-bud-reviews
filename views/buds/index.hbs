@@ -12,9 +12,12 @@
     </form>
   </nav>
 </div>
+
+<a href="/buds/create" class="btn btn-primary">Add a New Bud Review</a>
 {{#each buds}}
 
   {{! Card }}
+  
   <div class="col">
 
     <div class="card border-success" style="margin: 1rem">
@@ -23,11 +26,12 @@
         <p class="card-title">{{this.strain}}</p>
         <p class="card-title">{{this.thc}}</p>
         <p class="card-title">{{this.cbd}}</p>
+        <p class="card-title">{{this.review}}</p>
         <a href="#" class="btn btn-success">Reviews</a>
       </div>
     </div>
 
-  </div>
+  
 
   {{! <img
       class="card-img-top"
@@ -35,3 +39,4 @@
       alt="Card image cap"
     /> }}
 {{/each}}
+</div>

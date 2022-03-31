@@ -14,5 +14,12 @@ router.get("/", (req, res) => {
     }
   });
 });
+
+// GET /buds/create => load emplty buds form
+router.get("/create", (req, res) => {
+  res.render("buds/create", {
+    title: "bud",
+  });
+});
 // export this file so is it public
 module.exports = router;

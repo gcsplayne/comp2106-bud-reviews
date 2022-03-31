@@ -1,6 +1,7 @@
 body {
   font-family: "Manrope", sans-serif;
   min-height: 100%;
+  margin-bottom: 10rem;
 }
 
 a {
@@ -8,7 +9,6 @@ a {
 }
 
 body {
-  margin-bottom: 2rem;
 }
 
 footer {
@@ -43,4 +43,7 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+}
+fieldset {
+  margin: 0.5rem;
 }
