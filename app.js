@@ -10,15 +10,18 @@ var users = require("./controllers/users");
 const buds = require("./controllers/buds");
 
 var app = express();
+
+// if not in production mode, use .env file for db connection string
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 // mongoose db connection
 const mongoose = require("mongoose");
 
 // try to connect
 mongoose
-  .connect(
-    "mongodb+srv://mplayne:Marty@comp2106.jgtvi.mongodb.net/comp2106?retryWrites=true&w=majority",
-    {}
-  )
+  .connect(process.env.DATABASE_URL, {})
   .then((res) => {
     console.log("Connected to MongoDb");
   })
