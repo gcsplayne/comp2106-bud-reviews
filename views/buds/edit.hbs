@@ -1,0 +1,26 @@
+<h1>{{title}}</h1>
+
+<form method="post">
+  <fieldset>
+    <label class="'control-label col-2" for="name">Name: *</label>
+    <input name="name" id="name" required value="{{bud.name}}" />
+  </fieldset>
+  <fieldset>
+    <label class="'control-label col-2" for="strain">Strain: *</label>
+    <input name="strain" id="strain" required value="{{bud.strain}}" />
+  </fieldset>
+  <fieldset>
+    <label class="'control-label col-2" for="thc">THC%: *</label>
+    <input name="thc" id="thc" required value="{{bud.thc}}" />
+  </fieldset>
+  <fieldset>
+    <label class="'control-label col-2" for="cbd">CBD%: *</label>
+    <input name="cbd" id="cbd" required value="{{bud.cbd}}" />
+  </fieldset>
+  <fieldset>
+    <label class="'control-label col-2" for="review">Review: *</label>
+    <textarea name="review" id="review" required>{{bud.review}}</textarea>
+  </fieldset>
+  <button class="btn btn-secondary offset-2">Save</button>
+
+</form>

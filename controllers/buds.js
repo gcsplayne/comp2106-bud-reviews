@@ -45,5 +45,30 @@ router.get("/delete/:_id", (req, res) => {
     }
   });
 });
+
+/* GET /buds/edit/abc123 => show edit form populated with values of selected employer documents from url param  */
+router.get("/edit/:_id", (req, res) => {
+  Bud.findById(req.params._id, (err, bud) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("buds/edit", {
+        title: "Bud Details",
+        bud: bud,
+      });
+    }
+  });
+});
+
+/* POST /buds/edit/abc/123 => update document in mongodb & redirect to index */
+router.post("/edit/:_id", (req, res) => {
+  Bud.findByIdAndUpdate({ _id: req.params._id }, req.body, null, (err, bud) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/buds");
+    }
+  });
+});
 // export this file so is it public
 module.exports = router;
