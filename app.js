@@ -38,10 +38,42 @@ app.use(passport.session());
 let User = require("./models/user");
 // local strategy is default
 passport.use(User.createStrategy());
-// read/write user data to and from session object
-
+// Passport to read/write user data to and from session object
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// passport-github auth config
+const gitHubStrategy = require("passport-github2").Strategy;
+
+passport.use(
+  new gitHubStrategy(
+    {
+      clientID: process.env.GITHUB_CLIENT_ID,
+      clientSecret: process.env.GITHUB_CLIENT_SECRET,
+      callbackURL: process.env.GITHUB_CALLBACK_URL,
+    },
+    async (accessToken, refreshToken, profile, callback) => {
+      // check if this gitHub user already exists
+      try {
+        const user = await User.findOne({ oauthId: profile.id });
+        if (user) {
+          return callback(null, user);
+        } else {
+          // new gitHub user
+          const newUser = new User({
+            username: profile.username,
+            oauthProvider: "GitHub",
+            oauthId: profile.id,
+          });
+          const savedUser = await newUser.save();
+          callback(null, savedUser);
+        }
+      } catch (err) {
+        callback(err);
+      }
+    }
+  )
+);
 
 // mongoose db connection
 const mongoose = require("mongoose");

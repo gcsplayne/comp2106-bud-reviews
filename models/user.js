@@ -12,6 +12,8 @@ let userSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
+  oauthProvider: String,
+  oauthId: String,
 });
 
 // use passport-local-mongosose as the one that handles all user functions

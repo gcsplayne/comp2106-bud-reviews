@@ -52,5 +52,40 @@ router.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/auth/login");
 });
+
+/* GET /auth.github => invoke Github login attempt */
+// router.get(
+//   "github",
+//   passport.authenticate("github", { scope: ["user.email"] })
+// );
+
+/* GET /auth/github/callback => invoke github strategy */
+// router.get(
+//   "/github/callback",
+//   passport.authenticate("github", {
+//     failureRedirect: "/auth/login",
+//   }),
+//   (req, res) => {
+//     res.redirect("/buds");
+//   }
+// );
+
+/* GET /auth/github => invoke GitHub login attempt */
+router.get(
+  "/github",
+  passport.authenticate("github", { scope: ["user.email"] })
+);
+
+/* GET /auth/github/callback => invoke GitHub strategy in app.js to check for GitHub user */
+router.get(
+  "/github/callback",
+  passport.authenticate("github", {
+    failureRedirect: "/auth/login",
+  }),
+  (req, res) => {
+    res.redirect("/buds");
+  }
+);
+
 // public controller
 module.exports = router;
