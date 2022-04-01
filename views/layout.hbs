@@ -46,6 +46,23 @@
               <a class="nav-link active" href="./buds">Buds</a>
             </li>
           </ul>
+          <ul class="navbar-nav ms-auto">
+            {{#if user}}
+              <li class="nav-link">
+                <a class="nav-link active" href="#">{{user.username}}</a>
+              </li>
+              <li class="nav-link">
+                <a class="nav-link active" href="/auth/logout">Logout</a>
+              </li>
+            {{else}}
+              <li class="nav-link">
+                <a class="nav-link active" href="/auth/register">Register</a>
+              </li>
+              <li class="nav-link">
+                <a class="nav-link active" href="/auth/login">Login</a>
+              </li>
+            {{/if}}
+          </ul>
         </div>
       </div>
     </nav>

@@ -1,3 +1,4 @@
+
 <div class="conatiner-fluid">
   <nav class="navbar navbar-light">
     <a class="navbar-brand"><h1>{{title}}</h1></a>
@@ -12,8 +13,9 @@
     </form>
   </nav>
 </div>
-
+{{#if user}}
 <a href="/buds/create" class="btn btn-primary">Add a New Bud Review</a>
+{{/if}}
 {{#each buds}}
 
   {{! Card }}
@@ -27,9 +29,10 @@
         <p class="card-title">{{this.thc}}</p>
         <p class="card-title">{{this.cbd}}</p>
         <p class="card-title">{{this.review}}</p>
-        <a href="#" class="btn btn-success">Reviews</a>
-        <a class="btn btn-danger" href="/buds/delete/{{this._id}}" onclick="return confirmDelete()">Delete</a>
+        {{#if ../user}}
         <a href="/buds/edit/{{this._id}}" class="btn btn-warning">Edit</a>
+        <a class="btn btn-danger" href="/buds/delete/{{this._id}}" onclick="return confirmDelete()">Delete</a>
+        {{/if}}
       </div>
     </div>
 
